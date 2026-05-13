@@ -24,16 +24,6 @@ export class App implements OnInit {
     this.getForecasts();
   }
 
-  //getForecasts() {
-  //  this.http.get<WeatherForecast[]>('/weatherforecast').subscribe({
-  //    next: (result) => {
-  //      this.forecasts = result;
-  //    },
-  //    error: (error) => {
-  //      console.error(error);
-  //    }
-  //  });
-  //}
 
   getForecasts() {
     this.http.get<WeatherForecast[]>('/weatherforecast')

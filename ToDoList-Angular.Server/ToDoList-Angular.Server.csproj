@@ -24,8 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BL\" />
-    <Folder Include="Services\" />
+    <None Include="Models\Controller\ToDoList_Modal.cs" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularDevClient", p =>
+        p.WithOrigins("http://localhost:4200", "https://localhost:4200", "http://127.0.0.1:4200")
+         .AllowAnyHeader().AllowAnyMethod());
+});
+builder.Services.AddControllers();
+
 // Add services to the container.
 
 builder.Services.AddControllers();

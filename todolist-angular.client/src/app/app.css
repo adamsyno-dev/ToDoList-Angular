@@ -1,14 +1,59 @@
-﻿:host {
+:host {
     max-width: 1280px;
     padding: 2rem;
     text-align: center;
 }
 
+button {
+  color: white;
+  background-color: #256377;
+  border: 1px solid white;
+  width: 100px;
+  padding: 3px
+}
+
+  button:hover {
+    color: #256377;
+    background-color: white;
+  }
+
+
 th, td {
     padding-left: 1rem;
     padding-right: 1rem;
+    text-align: left;
 }
 
 table {
-    margin: 0 auto;
+  margin: 0 auto;
+  background-color: #7c4a03;
+  padding: 10px;
 }
+
+td:nth-child(2), th:nth-child(2) {
+  min-width: 200px;
+  text-align: left;
+}
+
+/* Ensure the other columns stay compact */
+/*td:last-child {
+  width: 1%;
+  white-space: nowrap;
+}*/
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+table  button {
+  color: white;
+  background-color: #7c4a03;
+  border: 1px solid white;
+  width: 100px;
+}
+
+  table button:hover {
+    color: #7c4a03;
+    background-color: white;
+  }

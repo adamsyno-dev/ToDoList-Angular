@@ -1,28 +1,44 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">To Do List</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
-
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-<button (click)="getForecasts()">Load Data</button>
-<table *ngIf="forecasts">
+<!--<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>-->
+<button (click)="getToDoList()">Load Data</button>
+<table *ngIf="toDoList_Modals">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
-    </tr>
+      <th>Complete</th>
+      <th>Text</th>
+      <th></th>
+     </tr>
   </thead>
 
   <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr *ngFor="let toDoList_Modal of toDoList_Modals">
+      <td>
+        <!-- [checked] sets the visual state based on your boolean -->
+        <!-- (change) allows you to handle user clicks -->
+        <input type="checkbox"
+               [checked]="toDoList_Modal.isComplete"
+               (change)="toDoList_Modal.isComplete = !toDoList_Modal.isComplete">
+      </td>
+      <td [class.completed]="toDoList_Modal.isComplete">
+        {{ toDoList_Modal.text }}
+      </td>
+      <button type="button" (click)="deleteItem(toDoList_Modal)">Delete</button>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input #newItemText type="text" placeholder="Enter new task..."></td>
+      <td><button (click)="addItem(newItemText.value); newItemText.value=''">Add</button></td>
     </tr>
   </tbody>
 </table>
 
+<div class="add-container" style="margin-top: 20px;">
+  
+  
+</div>
+
+
+
 <!-- loaded but empty -->
-<p *ngIf="forecasts && forecasts.length === 0"><em>No forecasts available.</em></p>
+<!--<p *ngIf="toDoList_Modals && toDoList_Modals.length === 0"><em>No toDoList_Modals available.</em></p>-->

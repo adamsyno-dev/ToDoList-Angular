@@ -6,10 +6,8 @@ builder.Services.AddCors(options =>
         p.WithOrigins("http://localhost:4200", "https://localhost:4200", "http://127.0.0.1:4200")
          .AllowAnyHeader().AllowAnyMethod());
 });
-builder.Services.AddControllers();
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

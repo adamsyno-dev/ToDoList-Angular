@@ -1,8 +1,8 @@
 <h1 id="tableLabel">To Do List</h1>
 
 <div class="add-container" style="margin-top: 20px; text-align: left">
-  <button (click)="getToDoList()">Load Data</button>
-  <span style="margin-left: 10px;" *ngIf="toDoList_Modals && toDoList_Modals.length === 0">No data. Click Load Data</span>
+  <button (click)="getToDoList()">Refresh Data</button>
+  <span style="margin-left: 10px;" *ngIf="toDoList_Modals && toDoList_Modals.length === 0">No data. Click Refresh Data</span>
 </div>
 
 <table *ngIf="toDoList_Modals">
@@ -31,8 +31,5 @@
     </tr>
   </tbody>
 </table>
-
-
-
 
 

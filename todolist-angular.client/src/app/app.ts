@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, signal } from '@angular/core';
 import { retry, delay } from 'rxjs/operators';
-
+import { ChangeDetectorRef } from '@angular/core';
 
 export interface ToDoList_Modal {
   text?: string;
@@ -16,8 +16,7 @@ export interface ToDoList_Modal {
 })
 export class App implements OnInit {
   public toDoList_Modals: ToDoList_Modal[] = [];
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.getToDoList();
@@ -32,6 +31,7 @@ export class App implements OnInit {
       .subscribe({
         next: (result) => {
           this.toDoList_Modals = result;
+          this.cdr.detectChanges(); 
         },
         error: (error) => {
           console.error("Data failed to load after retries:", error);

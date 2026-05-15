@@ -1,29 +1,28 @@
 <h1 id="tableLabel">To Do List</h1>
 
-<!--<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>-->
-<button (click)="getToDoList()">Load Data</button>
+<div class="add-container" style="margin-top: 20px; text-align: left">
+  <button (click)="getToDoList()">Load Data</button>
+  <span style="margin-left: 10px;" *ngIf="toDoList_Modals && toDoList_Modals.length === 0">No data. Click Load Data</span>
+</div>
+
 <table *ngIf="toDoList_Modals">
   <thead>
     <tr>
       <th>Complete</th>
       <th>Text</th>
       <th></th>
-     </tr>
+    </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let toDoList_Modal of toDoList_Modals">
       <td>
-        <!-- [checked] sets the visual state based on your boolean -->
-        <!-- (change) allows you to handle user clicks -->
         <input type="checkbox"
                [checked]="toDoList_Modal.isComplete"
                (change)="toDoList_Modal.isComplete = !toDoList_Modal.isComplete">
       </td>
-      <td [class.completed]="toDoList_Modal.isComplete">
-        {{ toDoList_Modal.text }}
-      </td>
-      <button type="button" (click)="deleteItem(toDoList_Modal)">Delete</button>
+      <td [class.completed]="toDoList_Modal.isComplete">{{ toDoList_Modal.text }}</td>
+      <td><button type="button" (click)="deleteItem(toDoList_Modal)">Delete</button></td>
     </tr>
     <tr>
       <td></td>
@@ -33,12 +32,7 @@
   </tbody>
 </table>
 
-<div class="add-container" style="margin-top: 20px;">
-  
-  
-</div>
 
 
 
-<!-- loaded but empty -->
-<!--<p *ngIf="toDoList_Modals && toDoList_Modals.length === 0"><em>No toDoList_Modals available.</em></p>-->
+
